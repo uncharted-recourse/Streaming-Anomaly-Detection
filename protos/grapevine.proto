@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package grapevine;
+
+message Message {
+    string raw = 1;
+    string text = 2;
+    string language = 3;
+    int64 createdAt = 4;
+}
+
+service Classifier {
+    rpc Classify(Message) returns (Classification) {}
+}
+
+message Classification {
+    string domain = 1;
+    string prediction = 2;
+    double confidence = 3;
+    string model = 4;
+    string version = 5;
+    Meta meta = 6;
+}
+
+message Meta {
+    repeated Sentence sentences = 1;
+}
+
+message Sentence {
+    double sentence_score = 1;
+    repeated double word_scores = 2;
+    repeated string words = 3;
+}
+
+service Extractor {
+    rpc Extract(Message) returns(Extraction) {}
+}
+
+message Extraction {
+    string key = 1;
+    repeated string values = 2;
+    double confidence = 3;
+    string model = 4;
+    string version = 5;
+}

@@ -1,0 +1,11 @@
+numpy
+pandas
+flask
+requests
+grpcio-tools
+nltk
+scipy
+sklearn
+git+https://github.com/NewKnowledge/simon@a36741491caf69baf831bfdd2d85a0fa61b553a0
+git+https://github.com/NewKnowledge/rrcf@b527d425c212db19dce3446d63b2e011d47d94e5
+
